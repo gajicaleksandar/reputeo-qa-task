@@ -297,6 +297,7 @@ The workflow runs on:
 ```text
 push to main
 pull request to main
+daily scheduled run
 manual workflow dispatch
 ```
 
