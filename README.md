@@ -283,3 +283,23 @@ The report command cleans old report files, runs the Cypress suite, merges Mocha
 The suite currently contains one known failing test that demonstrates a documented API defect, so the report is expected to show 11 passing tests and 1 failing test.
 
 Reports and screenshots are generated files and are not intended to be committed.
+
+## CI
+
+GitHub Actions workflow is configured in:
+
+```text
+.github/workflows/api-tests.yml
+```
+
+The workflow runs on:
+
+```text
+push to main
+pull request to main
+manual workflow dispatch
+```
+
+It installs dependencies, runs the Cypress API suite, generates the Mochawesome HTML report, and uploads the report as a GitHub Actions artifact.
+
+Because the suite contains one known failing test that demonstrates a documented API defect, the workflow uses the report command so the HTML report is still generated and uploaded.
