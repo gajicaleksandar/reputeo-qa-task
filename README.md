@@ -266,10 +266,20 @@ cypress/fixtures/bookingData.json
 
 Mochawesome is configured as the test reporter.
 
-Reports are generated locally under:
+To generate a fresh HTML report, run:
+
+```bash
+npm run test:report
+```
+
+The final HTML report is generated here:
 
 ```text
-cypress/reports/
+cypress/reports/index.html
 ```
+
+The report command cleans old report files, runs the Cypress suite, merges Mochawesome JSON files, and generates a single HTML report.
+
+The suite currently contains one known failing test that demonstrates a documented API defect, so the report is expected to show 11 passing tests and 1 failing test.
 
 Reports and screenshots are generated files and are not intended to be committed.
