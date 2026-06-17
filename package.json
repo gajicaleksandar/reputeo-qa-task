@@ -2,11 +2,16 @@
   "name": "reputeo-qa-task",
   "version": "1.0.0",
   "main": "index.js",
-  "scripts": {
-    "cy:open": "cypress open",
-    "cy:run": "cypress run",
-    "test": "cypress run"
-  },
+"scripts": {
+  "cy:open": "cypress open",
+  "cy:run": "cypress run",
+  "test": "cypress run",
+  "report:clean": "rm -rf cypress/reports cypress/screenshots",
+  "cy:run:report": "cypress run || true",
+  "report:merge": "mochawesome-merge cypress/reports/*.json > cypress/reports/combined-report.json",
+  "report:generate": "marge cypress/reports/combined-report.json --reportDir cypress/reports --reportFilename index --inline",
+  "test:report": "npm run report:clean && npm run cy:run:report && npm run report:merge && npm run report:generate"
+},
   "keywords": [],
   "author": "",
   "license": "ISC",
